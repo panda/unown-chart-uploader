@@ -64,11 +64,8 @@ fn main() -> Result<()> {
     );
 
     // Exit with appropriate code
-    let exit_code = if results.has_errors() && !args.continue_on_error {
-        1
-    } else {
-        0
-    };
+    let exit_code = (results.has_errors() && !args.continue_on_error) as i32;
+
     std::process::exit(exit_code);
 }
 
